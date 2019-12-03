@@ -1,0 +1,34 @@
+/* removing initial margin and making height 100% */
+html, body  {
+    margin: 0;
+    height: 100%;
+}
+
+/* page Styles */
+
+#header {
+    padding: 1% 2%;
+}
+
+#header > a {
+    text-decoration: none;
+}
+
+#K  {
+    font-size: 250%;
+    font-weight: 600;
+    color: #c40000;
+}
+
+#ODE  {
+    font-size: 150%;
+    font-weight: 300;
+    color: #ffae00;
+}
+
+/* for mobile screen */
+@media only screen and (max-width: 768px) {
+    #header {
+        padding: 2% 2%;
+    }
+}
