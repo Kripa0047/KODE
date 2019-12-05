@@ -7,7 +7,7 @@ html, body  {
 /* page Styles */
 
 #header {
-    padding: 1% 2%;
+    padding: 0 2%;
 }
 
 #header > a {
@@ -18,17 +18,102 @@ html, body  {
     font-size: 250%;
     font-weight: 600;
     color: #c40000;
+    font-family: 'Luckiest Guy', cursive;
 }
 
 #ODE  {
     font-size: 150%;
     font-weight: 300;
     color: #ffae00;
+    font-family: 'Luckiest Guy', cursive;
 }
 
+#banner {
+    height: 60%;
+    background-image: url("./assects/banner.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+#bannerText {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.596);
+    width: 25%;
+    height: 50%;
+    left: 10%;
+    top: 30%;
+    padding: 2%;
+    border-radius: 3%;
+    text-align: center;
+    font-size: 180%;
+    font-weight: 600;
+    box-shadow: 5px 5px #888888b6;
+}
+
+#bannerText > i:nth-of-type(1) {
+    color: red;
+}
+
+#bannerText > i:nth-of-type(2) {
+    color: rgb(88, 50, 50);
+}
+
+#bannerText > a > i {
+    font-size: 300%;
+    margin-top: 20px;
+    background-image: linear-gradient(to right, #000428, #004e92);
+    color:transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+}
+
+.smallText  {
+    font-size: 70% !important;
+    font-weight: 100;
+    color: rgb(66, 66, 66);
+}
+
+
+@media only screen and (max-width: 1100px) {
+    #bannerText {
+        width: 35%;
+        height: 45%;
+    }
+
+    #bannerText > a > i     {
+        margin-top: 0;
+    }
+}
+
+
 /* for mobile screen */
-@media only screen and (max-width: 768px) {
-    #header {
-        padding: 2% 2%;
+@media only screen and (max-width: 800px) {
+    #K  {
+        font-size: 150%;
+    }
+    
+    #ODE  {
+        font-size: 100%;
+    }
+
+    #banner {
+        height: 70%;
+    }
+
+    #bannerText {
+        width: 70%;
+        height: 30%;
+        left: 15%;
+        top: 60%;
+        font-size: 120%;
+    }
+}
+
+@media only screen and (max-width: 320px){
+    #bannerText {
+        height: 35%;
+        top: 55%;
     }
 }
