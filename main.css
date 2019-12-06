@@ -60,9 +60,10 @@ html, body  {
 }
 
 #bannerText > a > i {
+    padding: 0 5px;
     font-size: 300%;
     margin-top: 20px;
-    background-image: linear-gradient(to right, #000428, #004e92);
+    background-image: linear-gradient(to right, #000428, #0568be);
     color:transparent;
     -webkit-background-clip: text;
     background-clip: text;
