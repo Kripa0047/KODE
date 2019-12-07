@@ -77,6 +77,54 @@ html, body  {
     font-family: 'Patrick Hand', cursive;
 }
 
+/* styles for game body */
+.gameBody   {
+    margin: 2% 15%;
+    position: relative;
+    height: 40%;
+    border-bottom: 3px solid;
+    outline: none !important;
+    overflow: hidden;
+}
+
+#gameMario {
+    position: absolute;
+    bottom: 1px;
+    left: 0;
+}
+
+#cover  {
+    text-align: center;
+    position: absolute;
+    width: 100%;
+    bottom: 40%;
+    z-index: 10;
+}
+
+.cartain    {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.678);
+    z-index: 5;
+    position: absolute;
+}
+
+#gameStart  {
+    padding: 2% 3%;
+    background: rgba(0, 0, 146, 0.589);
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.marioPipe  {
+    position: absolute;
+    width: 40px;
+    bottom: 0;
+    right: 5%;
+}
+
+
 /* styles for body Options */
 #bodyOptions    {
     padding: 5% 10%;
@@ -228,6 +276,19 @@ html, body  {
 
     .bodyOptionsBody > a > img  {
         width: 30%;
+    }
+
+    .gameBody {
+        margin: 2% 1%;
+        height: 30%;
+    }
+
+    #gameMario  {
+        height: 70px;
+    }
+
+    .marioPipe  {
+        height: 50px;
     }
 
     .footerCol {

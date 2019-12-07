@@ -12,7 +12,7 @@
     -->
 
     <title>KODE</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
     <!-- link main.css -->
     <link rel="stylesheet" href="./main.css">
     <!-- google fonts -->
@@ -86,7 +86,17 @@
 
     </div>
 
+    <!-- interactive GAME -->
+    <div class="gameBody" tabindex="-1">
+        <div id="cover">
+            <span id="gameStart">START <i class="fas fa-running"></i></span>
+        </div>
+        <img id="gameMario" src="./assects/marioStand.jpg" alt="marioGIF">
+        <img class="marioPipe" src="./assects/marioPipe.png" alt="marioPipe">
+        <div class="cartain"></div>
+    </div>
 
+    <!-- footer -->
     <div id="footer">
 
         <div class="footerCol">
@@ -123,8 +133,9 @@
         <div class="footerCol">
 
             <h3 class="footerHeader cHeader">CONTACT US</h3>
-            <div class="footerSubText footerCol4"><a href="#">GITHUB</a></div>
-            <div class="footerSubText footerCol4"><a href="#">INSTRUCTABLES</a></div>
+            <div class="footerSubText footerCol4"><a href="https://github.com/Kripa0047">GITHUB</a></div>
+            <div class="footerSubText footerCol4"><a
+                    href="https://www.instructables.com/member/_Kripa_/instructables/">INSTRUCTABLES</a></div>
 
         </div>
 
@@ -141,6 +152,8 @@
 
 </body>
 
+<!-- jQuery CDN -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <!-- link script.js -->
 <script src="./script.js"></script>
 <!-- font awesome -->
