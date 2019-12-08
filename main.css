@@ -152,6 +152,7 @@ html, body  {
     position: absolute;
     width: 50px;
     top: 35%;
+    right: -20%;
 }
 
 #birdTwo    {

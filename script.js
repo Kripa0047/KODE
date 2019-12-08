@@ -146,7 +146,7 @@ function myGame() {
     pipeMoving();
     clouds();
     birds();
-    // check();
+    check();
 }
 
 $("#gameStart").click(function () {
