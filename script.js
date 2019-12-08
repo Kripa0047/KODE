@@ -35,7 +35,7 @@ function jump() {
 
 // for key press (computer)
 $(".gameBody").keydown(function () {
-    if (readyJump) {
+    if (readyJump && startGame) {
         readyJump = false;
         jump();
     }
