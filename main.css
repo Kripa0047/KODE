@@ -124,6 +124,15 @@ html, body  {
     right: 5%;
 }
 
+#gameScore  {
+    position: absolute;
+    right: 0;
+    padding: .5% 3%;
+    background: rgb(0, 10, 68);
+    color: white;
+    border-radius: 10px;
+}
+
 
 /* styles for body Options */
 #bodyOptions    {
@@ -284,11 +293,11 @@ html, body  {
     }
 
     #gameMario  {
-        height: 70px;
+        height: 40px;
     }
 
     .marioPipe  {
-        height: 50px;
+        height: 35px;
     }
 
     .footerCol {
