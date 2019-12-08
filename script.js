@@ -14,6 +14,7 @@ var moving;
 var checking;
 var startGame = false;
 var gameScore = 0;
+var jumpHeight;
 
 // functio to jump
 function jump() {
@@ -21,7 +22,7 @@ function jump() {
 
     var inc = 1;
     jumping = setInterval(function () {
-        if (marioPosition == 100) inc = -1;
+        if (marioPosition == jumpHeight) inc = -1;
         marioPosition += inc;
         $("#gameMario").css("bottom", marioPosition + "px");
         if (marioPosition == 0) {
@@ -93,6 +94,7 @@ function myGame() {
     marioPosition = 0;
     readyJump = true;
     startGame = true;
+    jumpHeight = 100;
 
     $("#gameScore").html("0"+gameScore);
     $("#gameMario").css("bottom", marioPosition + "px");
@@ -104,6 +106,7 @@ function myGame() {
         jumpSpeed = 10;
         checkPipe = 70;
         checkMario = 30;
+        jumpHeight = 60;
     }
     $('.gameBody').focus();
     pipeMoving();

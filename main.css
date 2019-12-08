@@ -78,6 +78,14 @@ html, body  {
 }
 
 /* styles for game body */
+#gameBaner{
+    text-align: center;
+    background: cornflowerblue;
+    color: white;
+    padding: 20px;
+    font-family: 'Delius Unicase', cursive;
+}
+
 .gameBody   {
     margin: 2% 15%;
     position: relative;
@@ -254,6 +262,13 @@ html, body  {
     }
 }
 
+/* for mobile screen landscape mode */
+@media only screen and (max-width : 768px)  and (orientation : landscape) {
+    .gameBody {
+        margin: 2% 1%;
+        height: 60%;
+    }
+}
 
 /* for mobile screen */
 @media only screen and (max-width: 800px) {
