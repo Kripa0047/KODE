@@ -15,10 +15,42 @@ var checking;
 var startGame = false;
 var gameScore = 0;
 var jumpHeight;
+var movingClouds;
+var flyingBirds;
+
+// function for flying birds
+function birds(){
+    var birds1Position = -700;
+    var birds2Position = -300;
+    $("#birdOne").css("right", birds1Position+"px");
+    $("#birdTwo").css("right", birds2Position+"px");
+    flyingBirds = setInterval(function(){
+        birds1Position++;
+        birds2Position += 0.5;
+        $("#birdOne").css("right", birds1Position+"px");
+        $("#birdTwo").css("right", birds2Position+"px");
+        if(parseInt(birds2Position) == parseInt(windowWidth+300))
+            birds2Position = -300;
+        if(birds1Position == parseInt(windowWidth+700))
+            birds1Position = -700;
+    }, 15);
+}
+
+// function for moving clouds
+function clouds(){
+    var cloudPosition = -200;
+    $(".clouds").css("right", cloudPosition+"px");
+    movingClouds = setInterval(function(){
+        cloudPosition++;
+        $(".clouds").css("right", cloudPosition+"px");
+        if(cloudPosition == parseInt(windowWidth+200))
+            cloudPosition = -200;
+    }, 20);
+}
 
 // functio to jump
 function jump() {
-    $("#gameMario").attr('src', "./assects/marioJump.jpg");
+    $("#gameMario").attr('src', "./assects/marioJump.png");
 
     var inc = 1;
     jumping = setInterval(function () {
@@ -76,7 +108,9 @@ function check() {
             clearInterval(jumping);
             clearInterval(moving);
             clearInterval(checking);
-            $("#gameMario").attr('src', "./assects/marioJump.jpg");
+            clearInterval(movingClouds);
+            clearInterval(flyingBirds);
+            $("#gameMario").attr('src', "./assects/marioJump.png");
             $("#cover").fadeToggle();
             $(".cartain").fadeToggle();
             startGame = false;
@@ -110,13 +144,15 @@ function myGame() {
     }
     $('.gameBody').focus();
     pipeMoving();
-    check();
+    clouds();
+    birds();
+    // check();
 }
 
 $("#gameStart").click(function () {
     var i = 0;
     var imgSrc = $("#gameMario").attr('src');
-    if (imgSrc == "./assects/marioStand.jpg" || imgSrc == "./assects/marioJump.jpg") {
+    if (imgSrc == "./assects/marioStand.jpg" || imgSrc == "./assects/marioJump.png") {
         $("#gameMario").attr('src', "./assects/marioGIF.gif");
     }
 

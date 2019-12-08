@@ -141,6 +141,23 @@ html, body  {
     border-radius: 10px;
 }
 
+.clouds {
+    position: absolute;
+    top: 20%;
+    width: 150px;
+    right: 30%;
+}
+
+.birds  {
+    position: absolute;
+    width: 50px;
+    top: 35%;
+}
+
+#birdTwo    {
+    top: 55%;
+}
+
 
 /* styles for body Options */
 #bodyOptions    {
@@ -313,6 +330,14 @@ html, body  {
 
     .marioPipe  {
         height: 35px;
+    }
+
+    .clouds {
+        width: 100px;
+    }
+
+    .birds  {
+        width: 30px;
     }
 
     .footerCol {
