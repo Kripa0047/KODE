@@ -75,7 +75,7 @@ function newJump() {
     jumpSpeed = 0;
     function justJump() {
         jumping = setInterval(function () {
-            console.log(jumpSpeed);
+            // console.log(jumpSpeed);
             if (marioPosition == jumpHeight) {
                 inc = -1;
                 sign = -1;
