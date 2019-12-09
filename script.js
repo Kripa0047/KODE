@@ -49,18 +49,18 @@ function birds() {
 // function for moving clouds
 function clouds() {
     var cloudPosition = -200;
-    var happyCloudPosition = -500;
+    var happyCloudPosition = 200;
     $("#twoClouds").css("right", cloudPosition + "px");
     $("#oneCloud").css("right", happyCloudPosition + "px");
     movingClouds = setInterval(function () {
-        cloudPosition++;
-        happyCloudPosition++;
+        cloudPosition += 0.3;
+        happyCloudPosition += 0.3;
         $("#twoClouds").css("right", cloudPosition + "px");
         $("#oneCloud").css("right", happyCloudPosition + "px");
-        if (cloudPosition == parseInt(windowWidth + 200))
+        if (parseInt(cloudPosition) == parseInt(windowWidth + 200))
             cloudPosition = -200;
-        if (parseInt(happyCloudPosition) == parseInt(windowWidth + 300))
-            happyCloudPosition = -300;
+        if (parseInt(happyCloudPosition) == parseInt(windowWidth + 100))
+            happyCloudPosition = -100;
     }, 20);
 }
 
@@ -72,16 +72,16 @@ function newJump() {
     var inc = 1;
     var x = 0;
     var sign = 1;
-    jumpSpeed = 2;
+    jumpSpeed = 0;
     function justJump() {
         jumping = setInterval(function () {
-            // console.log(jumpSpeed);
+            console.log(jumpSpeed);
             if (marioPosition == jumpHeight) {
                 inc = -1;
                 sign = -1;
             }
             x += jumpInc*sign;
-            jumpSpeed += x*x*sign;
+            jumpSpeed += x*x*x*sign;
             marioPosition += inc;
             $("#gameMario").css("bottom", marioPosition + "px");
             if (marioPosition == 0) {
@@ -133,7 +133,7 @@ $(".gameBody").keydown(function () {
 });
 
 // for touch (touch devices)
-$(".gameBody").on("touchstart", function () {
+$(".gameBody").on("touchstart", function (event) {
     if (readyJump && startGame) {
         readyJump = false;
         // jump();
@@ -190,7 +190,7 @@ function myGame() {
     readyJump = true;
     startGame = true;
     jumpHeight = 100;
-    jumpInc = 0.007;
+    jumpInc = 0.009;
 
     $("#gameScore").html("0" + gameScore);
     $("#gameMario").css("bottom", marioPosition + "px");
@@ -202,7 +202,7 @@ function myGame() {
         checkPipe = 70;
         checkMario = 35;
         jumpHeight = 80;
-        jumpInc = 0.009;
+        jumpInc = 0.012;
     }
     $('.gameBody').focus();
     pipeMoving();

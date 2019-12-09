@@ -341,7 +341,11 @@ html, body  {
     }
 
     .clouds {
-        width: 100px;
+        width: 80px;
+    }
+
+    #oneCloud   {
+        width: 60px;
     }
 
     .birds  {
