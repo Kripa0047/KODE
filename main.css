@@ -2,6 +2,7 @@
 html, body  {
     margin: 0;
     height: 100%;
+    touch-action: manipulation;
 }
 
 /* page Styles */
@@ -146,6 +147,12 @@ html, body  {
     top: 20%;
     width: 150px;
     right: 30%;
+}
+
+#oneCloud {
+    width: 80px;
+    top: 45%;
+    right: 60%;
 }
 
 .birds  {

@@ -17,59 +17,111 @@ var gameScore = 0;
 var jumpHeight;
 var movingClouds;
 var flyingBirds;
+var jumpInc;
 
 // function for flying birds
-function birds(){
-    var birds1Position = -700;
+function birds() {
+    $("#birdOne").attr('src', "./assects/birdGIF.gif");
+    $("#birdTwo").attr('src', "./assects/slowBird.gif");
+    var birds1Position = -400;
     var birds2Position = -300;
-    $("#birdOne").css("right", birds1Position+"px");
-    $("#birdTwo").css("right", birds2Position+"px");
-    flyingBirds = setInterval(function(){
+    $("#birdOne").css("right", birds1Position + "px");
+    $("#birdTwo").css("right", birds2Position + "px");
+    flyingBirds = setInterval(function () {
         birds1Position++;
         birds2Position += 0.5;
-        $("#birdOne").css("right", birds1Position+"px");
-        $("#birdTwo").css("right", birds2Position+"px");
-        if(parseInt(birds2Position) == parseInt(windowWidth+300))
+        $("#birdOne").css("right", birds1Position + "px");
+        $("#birdTwo").css("right", birds2Position + "px");
+        if (parseInt(birds2Position) == parseInt(windowWidth + 300))
             birds2Position = -300;
-        if(birds1Position == parseInt(windowWidth+700))
-            birds1Position = -700;
+        if (birds1Position == parseInt(windowWidth + 400))
+            birds1Position = -400;
     }, 15);
 }
 
 // function for moving clouds
-function clouds(){
+function clouds() {
     var cloudPosition = -200;
-    $(".clouds").css("right", cloudPosition+"px");
-    movingClouds = setInterval(function(){
+    var happyCloudPosition = -500;
+    $("#twoClouds").css("right", cloudPosition + "px");
+    $("#oneCloud").css("right", happyCloudPosition + "px");
+    movingClouds = setInterval(function () {
         cloudPosition++;
-        $(".clouds").css("right", cloudPosition+"px");
-        if(cloudPosition == parseInt(windowWidth+200))
+        happyCloudPosition++;
+        $("#twoClouds").css("right", cloudPosition + "px");
+        $("#oneCloud").css("right", happyCloudPosition + "px");
+        if (cloudPosition == parseInt(windowWidth + 200))
             cloudPosition = -200;
+        if (parseInt(happyCloudPosition) == parseInt(windowWidth + 300))
+            happyCloudPosition = -300;
     }, 20);
 }
 
-// functio to jump
-function jump() {
+
+// newJump
+function newJump() {
     $("#gameMario").attr('src', "./assects/marioJump.png");
 
     var inc = 1;
-    jumping = setInterval(function () {
-        if (marioPosition == jumpHeight) inc = -1;
-        marioPosition += inc;
-        $("#gameMario").css("bottom", marioPosition + "px");
-        if (marioPosition == 0) {
-            $("#gameMario").attr('src', "./assects/marioGIF.gif");
-            readyJump = true;
-            clearInterval(jumping);
-        }
-    }, jumpSpeed);
+    var x = 0;
+    var sign = 1;
+    jumpSpeed = 2;
+    function justJump() {
+        jumping = setInterval(function () {
+            // console.log(jumpSpeed);
+            if (marioPosition == jumpHeight) {
+                inc = -1;
+                sign = -1;
+            }
+            x += jumpInc*sign;
+            jumpSpeed += x*x*sign;
+            marioPosition += inc;
+            $("#gameMario").css("bottom", marioPosition + "px");
+            if (marioPosition == 0) {
+                $("#gameMario").attr('src', "./assects/marioGIF.gif");
+                readyJump = true;
+                clearInterval(jumping);
+            }
+            else {
+                clearInterval(jumping);
+                justJump();
+            }
+        }, jumpSpeed);
+    }
+    justJump();
 }
+
+// functio to jump
+// function jump() {
+//     $("#gameMario").attr('src', "./assects/marioJump.png");
+
+//     var inc = 1;
+//     var jumpInc = 2;
+//     jumpSpeed = 8;
+//     jumping = setInterval(function () {
+//         console.log(jumpSpeed);
+//         if (marioPosition == jumpHeight) {
+//             inc = -1;
+//             jumpInc = -2;
+//         }
+
+//         jumpSpeed += jumpInc;
+//         marioPosition += inc;
+//         $("#gameMario").css("bottom", marioPosition + "px");
+//         if (marioPosition == 0) {
+//             $("#gameMario").attr('src', "./assects/marioGIF.gif");
+//             readyJump = true;
+//             clearInterval(jumping);
+//         }
+//     }, jumpSpeed);
+// }
 
 // for key press (computer)
 $(".gameBody").keydown(function () {
     if (readyJump && startGame) {
         readyJump = false;
-        jump();
+        // jump();
+        newJump();
     }
 });
 
@@ -77,7 +129,8 @@ $(".gameBody").keydown(function () {
 $(".gameBody").on("touchstart", function () {
     if (readyJump && startGame) {
         readyJump = false;
-        jump();
+        // jump();
+        newJump();
     }
 });
 
@@ -110,18 +163,19 @@ function check() {
             clearInterval(checking);
             clearInterval(movingClouds);
             clearInterval(flyingBirds);
+            $("#birdOne").attr('src', "./assects/birdOne.jpg");
+            $("#birdTwo").attr('src', "./assects/birdTwo.jpg");
             $("#gameMario").attr('src', "./assects/marioJump.png");
             $("#cover").fadeToggle();
             $(".cartain").fadeToggle();
             startGame = false;
         }
-    }, 5);
+    }, pipeSpeed);
 }
 
 // function to initlize game
 function myGame() {
     gameScore = 0;
-    jumpSpeed = 7;
     pipeSpeed = 5;
     checkPipe = 100;
     checkMario = 60;
@@ -129,18 +183,19 @@ function myGame() {
     readyJump = true;
     startGame = true;
     jumpHeight = 100;
+    jumpInc = 0.007;
 
-    $("#gameScore").html("0"+gameScore);
+    $("#gameScore").html("0" + gameScore);
     $("#gameMario").css("bottom", marioPosition + "px");
     screenWidth = $("body").width();
     windowWidth = $(".gameBody").width();
-    console.log(screenWidth);
-    console.log(windowWidth);
+    // console.log(screenWidth);
+    // console.log(windowWidth);
     if (screenWidth < 783.3) {
-        jumpSpeed = 10;
         checkPipe = 70;
-        checkMario = 30;
-        jumpHeight = 60;
+        checkMario = 35;
+        jumpHeight = 80;
+        jumpInc = 0.009;
     }
     $('.gameBody').focus();
     pipeMoving();
