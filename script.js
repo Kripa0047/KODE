@@ -1,5 +1,12 @@
 console.log("Connected");
 
+/* Copyright (C) Kripa0047,- All Rights Reserved
+ * Unauthorized copying, modifying of this file, via any medium is strictly prohibited
+ * Proprietary and confidential
+ * Written by Kripa Bairagi <kripabairagi0047@gmail.com>, 2019-2020
+ */
+
+
 var jumpSpeed;
 var pipeSpeed;
 var screenWidth;
